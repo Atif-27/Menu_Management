@@ -60,7 +60,7 @@ export const getAllItems = asyncWrapper(async (req, res) => {
 
 // @ desc Get all items under a category
 // @route GET /api/v1/items/category/:id
-export const getItemsByCategory = asyncWrapper(async (req, res) => {
+export const getItemsByCategoryId = asyncWrapper(async (req, res) => {
   const items = await Item.find({
     onModel: "Category",
     modelId: req.params.id,
@@ -78,7 +78,7 @@ export const getItemsByCategory = asyncWrapper(async (req, res) => {
 
 // @ desc Get all items under a subcategory
 // @route GET /api/v1/items/subcategory/:id
-export const getItemsBySubcategory = asyncWrapper(async (req, res) => {
+export const getItemsBySubcategoryId = asyncWrapper(async (req, res) => {
   const items = await Item.find({
     onModel: "Subcategory",
     modelId: req.params.id,
