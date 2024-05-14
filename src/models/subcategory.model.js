@@ -5,6 +5,9 @@ const SubcategorySchema = new Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
+    minlength: 3,
+    maxlength: 50,
   },
   image: {
     type: String,
@@ -13,6 +16,7 @@ const SubcategorySchema = new Schema({
   description: {
     type: String,
     required: true,
+    minlength: 10,
   },
   taxApplicability: {
     type: Boolean,
