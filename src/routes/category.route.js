@@ -2,7 +2,7 @@ import express from "express";
 import {
   createCategory,
   getAllCategories,
-  getCategory,
+  getCategoryByIdOrName,
   updateCategoryById,
 } from "../controllers/category.controller.js";
 
@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.post("/", createCategory);
 router.get("/", getAllCategories);
-router.get("/:id", getCategory);
+router.get("/:id", getCategoryByIdOrName);
 router.put("/:id", updateCategoryById);
 export default router;

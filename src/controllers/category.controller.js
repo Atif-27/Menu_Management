@@ -8,7 +8,7 @@ import { z } from "zod";
 // @route POST /api/v1/categories
 const categoryVal = z.object({
   name: z.string().min(3).max(50),
-  image: z.string().url(),
+  image: z.string(),
   description: z.string().min(10),
   taxApplicability: z.boolean(),
   tax: z.number(),
@@ -49,7 +49,7 @@ export const getAllCategories = asyncWrapper(async (req, res) => {
 
 // @ desc Get single category by id or name
 // @route GET /api/v1/categories/:id
-export const getCategory = asyncWrapper(async (req, res) => {
+export const getCategoryByIdOrName = asyncWrapper(async (req, res) => {
   const category = await Category.findOne({
     $or: [{ _id: req.params.id }, { name: req.params.id }],
   });
@@ -65,7 +65,7 @@ export const getCategory = asyncWrapper(async (req, res) => {
 // @route PUT /api/v1/categories/:id
 const updateCategoryVal = z.object({
   name: z.string().min(3).max(50).optional(),
-  image: z.string().url().optional(),
+  image: z.string().optional(),
   description: z.string().min(10).optional(),
   taxApplicability: z.boolean().optional(),
   tax: z.number().optional(),
