@@ -1,7 +1,7 @@
 import express from "express";
 import connectDB from "./src/config/db.js";
 import dotenv from "dotenv";
-import ExpressResponse from "./src/utils/ExpressResponse.js";
+import ExpressError from "./src/utils/ExpressError.js";
 
 dotenv.config();
 const app = express();
@@ -19,15 +19,12 @@ app.use("/api/v1/items", itemRoutes);
 
 // ! Error Handler Middleware
 app.use((err, req, res, next) => {
-  console.log(err);
-  res
-    .status(err.statusCode || 500)
-    .json(
-      new ExpressResponse(
-        err.statusCode || 500,
-        err.message || "Internal Server Error"
-      )
-    );
+  if (err) {
+    const { statusCode = 500, message = "Something went wrong" } = err;
+    console.log(err.message);
+    res.status(statusCode).json({ message });
+    next();
+  }
 });
 // ! DB and Server Connection
 connectDB()

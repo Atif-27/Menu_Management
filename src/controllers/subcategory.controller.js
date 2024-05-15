@@ -8,16 +8,23 @@ import { z } from "zod";
 // @route POST /api/v1/subcategories
 const subcategoryVal = z.object({
   name: z.string().min(3).max(50),
-  image: z.string().url(),
+  image: z.string(),
   description: z.string().min(10),
   taxApplicability: z.boolean(),
   tax: z.number(),
   taxType: z.string().optional(),
-  category: z.string(),
+  categoryId: z.string(),
 });
 export const createSubcategory = asyncWrapper(async (req, res) => {
-  const { name, image, description, taxApplicability, tax, taxType, category } =
-    subcategoryVal.parse(req.body);
+  const {
+    name,
+    image,
+    description,
+    taxApplicability,
+    tax,
+    taxType,
+    categoryId,
+  } = subcategoryVal.parse(req.body);
   const subcategory = await Subcategory.create({
     name,
     image,
@@ -25,7 +32,7 @@ export const createSubcategory = asyncWrapper(async (req, res) => {
     taxApplicability,
     tax,
     taxType,
-    category,
+    categoryId,
   });
   res
     .status(201)
@@ -93,19 +100,19 @@ export const getSubcategory = asyncWrapper(async (req, res) => {
 // @route PUT /api/v1/subcategories/:id
 const updateSubcategoryVal = z.object({
   name: z.string().min(3).max(50).optional(),
-  image: z.string().url().optional(),
+  image: z.string().optional(),
   description: z.string().min(10).optional(),
   taxApplicability: z.boolean().optional(),
   tax: z.number().optional(),
   taxType: z.string().optional(),
-  category: z.string().optional(),
 });
 export const updateSubcategory = asyncWrapper(async (req, res) => {
-  const { name, image, description, taxApplicability, tax, taxType, category } =
+  // You cant update the categoryId of a subcategory
+  const { name, image, description, taxApplicability, tax, taxType } =
     updateSubcategoryVal.parse(req.body);
   const subcategory = await Subcategory.findByIdAndUpdate(
     req.params.id,
-    { name, image, description, taxApplicability, tax, taxType, category },
+    { name, image, description, taxApplicability, tax, taxType },
     {
       new: true,
       runValidators: false,
