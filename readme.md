@@ -56,6 +56,8 @@ This Node.js backend server manages menus divided into categories, subcategories
 | Subcategory | Represents a subcategory of a category |
 | Item        | Represents an item in a subcategory    |
 
+![image](https://github.com/Atif-27/Menu_Management/assets/116288316/4bd844be-4a32-438b-a2ae-4c0a984004d3)
+
 ## Routes
 
 ### Categories
