@@ -3,6 +3,7 @@ import ExpressResponse from "../utils/ExpressResponse.js";
 import ExpressError from "../utils/ExpressError.js";
 import Item from "../models/item.model.js";
 import { z } from "zod";
+import mongoose from "mongoose";
 
 // @ desc Create a new item
 // @route POST /api/v1/items
@@ -97,9 +98,12 @@ export const getItemsBySubcategoryId = asyncWrapper(async (req, res) => {
 // @ desc Get single item by id or name
 // @route GET /api/v1/items/:id
 export const getItem = asyncWrapper(async (req, res) => {
-  const item = await Item.findOne({
-    $or: [{ _id: req.params.id }, { name: req.params.id }],
-  });
+  // Check if the id is a valid ObjectId or a name
+  const isId = mongoose.Types.ObjectId.isValid(req.params.id);
+  let query;
+  if (isId) query = { _id: req.params.id };
+  else query = { name: req.params.id };
+  const item = await Item.findOne(query);
   if (!item) {
     throw new ExpressError(404, "Item not found.");
   }
