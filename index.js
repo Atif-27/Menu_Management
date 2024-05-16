@@ -16,7 +16,7 @@ import itemRoutes from "./src/routes/item.route.js";
 app.use("/api/v1/categories", categoryRoutes);
 app.use("/api/v1/subcategories", subcategoryRoutes);
 app.use("/api/v1/items", itemRoutes);
-app.use("/", (_, res) => {
+app.use("/test", (_, res) => {
   res.json("Api Working");
 });
 // ! Error Handler Middleware
