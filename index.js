@@ -12,13 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 import categoryRoutes from "./src/routes/category.route.js";
 import subcategoryRoutes from "./src/routes/subcategory.route.js";
 import itemRoutes from "./src/routes/item.route.js";
-app.use("/", (req, res) => {
-  res.send("Api Working");
-});
+
 app.use("/api/v1/categories", categoryRoutes);
 app.use("/api/v1/subcategories", subcategoryRoutes);
 app.use("/api/v1/items", itemRoutes);
-
+app.use("/", (_, res) => {
+  res.json("Api Working");
+});
 // ! Error Handler Middleware
 app.use((err, req, res, next) => {
   if (err) {

@@ -25,7 +25,7 @@ This Node.js backend server manages menus divided into categories, subcategories
 4. Set Up your env file
 
    ```env
-   DB_URI=mongodb+srv://atif276ali:RTQUh20M6QdlSkWG@cluster0.xjcl9wz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+   DB_URI=mongodb+srv://atif276ali:RTQUh20M6QdlSkWG@cluster0.xjcl9wz.mongodb.net/menu?retryWrites=true&w=majority&appName=Cluster0
 
    PORT=9000
    ```
@@ -36,7 +36,7 @@ This Node.js backend server manages menus divided into categories, subcategories
    npm start
    ```
 
-6. You can now use Postman or any API client to interact with the server.
+6. You can now use Postman or any API client to interact with the server. Here is my postman collection [Link](https://app.getpostman.com/join-team?invite_code=243ce1bcf4a198f655bad4324874a90f&target_code=80fd480c58fa876f93f95f64a3d21231)
 
 ## Tech Stack
 
