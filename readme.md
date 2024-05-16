@@ -39,6 +39,10 @@ This Node.js backend server manages menus divided into categories, subcategories
    ```
 
 6. You can now use Postman or any API client to interact with the server. Here is my postman collection [Link](https://app.getpostman.com/join-team?invite_code=243ce1bcf4a198f655bad4324874a90f&target_code=80fd480c58fa876f93f95f64a3d21231)
+7. Imp Note - Select the New environment mode otherwise routes wont be working
+   
+   ![image](https://github.com/Atif-27/Menu_Management/assets/116288316/e8619ec4-99cb-444d-b9f1-4f30923ae02d)
+
 
 ## Tech Stack
 
@@ -55,6 +59,8 @@ This Node.js backend server manages menus divided into categories, subcategories
 | Category    | Represents a menu category             |
 | Subcategory | Represents a subcategory of a category |
 | Item        | Represents an item in a subcategory    |
+
+![image](https://github.com/Atif-27/Menu_Management/assets/116288316/4bd844be-4a32-438b-a2ae-4c0a984004d3)
 
 ## Routes
 
