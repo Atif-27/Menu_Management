@@ -43,6 +43,11 @@ This Node.js backend server manages menus divided into categories, subcategories
    
    ![image](https://github.com/Atif-27/Menu_Management/assets/116288316/e8619ec4-99cb-444d-b9f1-4f30923ae02d)
 
+8. Paste the URL in initial and current value of the environment in case of error
+```bash
+menu-management-three.vercel.app/api/v1
+```
+
 
 ## Tech Stack
 
