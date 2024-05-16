@@ -2,6 +2,8 @@
 
 This Node.js backend server manages menus divided into categories, subcategories, and items. It provides APIs to create, retrieve, update, and search for categories, subcategories, and items.
 
+[Loom Video](https://www.loom.com/share/d5268c8f9e774de9bd2cc397cc38fcaf)
+
 ## Setup
 
 1. Clone this repository.
