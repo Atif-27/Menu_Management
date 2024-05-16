@@ -22,10 +22,12 @@ This Node.js backend server manages menus divided into categories, subcategories
    npm install
    ```
 
-4. Set up your MongoDB database and provide the connection URI in a `.env` file.
+4. Set Up your env file
 
    ```env
-   MONGODB_URI=mongodb://localhost:27017/menu_management
+   DB_URI=mongodb+srv://atif276ali:RTQUh20M6QdlSkWG@cluster0.xjcl9wz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+   PORT=9000
    ```
 
 5. Run the server.
